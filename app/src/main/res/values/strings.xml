@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">FreshToPakghar</string>
+
+    <!--Common-->
+
+    <!--Splash-->
+    <string name="greeting">Welcome to</string>
+    <string name="splash_header_1">Fresh to Pakghar</string>
+    <string name="splash_header_2">Eat Healthy</string>
+
+    <!--Login-->
+    <string name="action_login">Login</string>
+    <string name="title_login">Login</string>
+    <string name="prompt_phone_number">Phone Number</string>
+    <string name="prompt_password">Password</string>
+    <string name="prompt_account">Don\'t have an account?</string>
+
+    <!--Registration-->
+    <string name="title_create_account">Create Account</string>
+    <string name="action_create_account">Create account</string>
+    <string name="prompt_first_name">First Name</string>
+    <string name="prompt_last_name">Last Name</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_account_login">Already have an account?</string>
+    <string name="prompt_confirm_password">Confirm Password</string>
+
+    <!--Verify OTP-->
+    <string name="title_verify_otp">Verification</string>
+    <string name="prompt_enter_otp">Enter 6-digit OTP</string>
+    <string name="action_resend_otp">Resend OTP</string>
+    <string name="action_verify_otp">Verify OTP</string>
+
+    <!--Product-->
+    <string name="price_placeholder"><strike>\u20B9%1$s</strike></string>
+
+</resources>
