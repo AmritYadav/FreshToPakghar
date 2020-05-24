@@ -29,12 +29,20 @@
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.ftp.DetailsFragment"
+        android:name="com.ftp.ui.grocery.DetailsFragment"
         android:label=" "
         tools:layout="@layout/fragment_details">
         <argument
             android:name="product"
             app:argType="com.ftp.ui.grocery.models.Product" />
+        <action
+            android:id="@+id/action_detailsFragment_to_ftp_checkout_graph"
+            app:destination="@id/ftp_checkout_graph"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
+    <include app:graph="@navigation/ftp_checkout_graph" />
 
 </navigation>

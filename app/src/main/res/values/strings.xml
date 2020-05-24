@@ -33,4 +33,15 @@
     <!--Product-->
     <string name="price_placeholder"><strike>\u20B9%1$s</strike></string>
 
+    <!--Add Address-->
+    <string name="prompt_name">Name*</string>
+    <string name="prompt_mobile_number">Mobile Number*</string>
+    <string name="prompt_flat_no">House/Flat No*</string>
+    <string name="prompt_block_name">Block Name</string>
+    <string name="prompt_pincode">Pincode*</string>
+    <string name="prompt_building_name">Building Name*</string>
+    <string name="prompt_street">Street*</string>
+    <string name="prompt_locality">Locality*</string>
+    <string name="prompt_city">City*</string>
+    <string name="prompt_state">State*</string>
 </resources>
