@@ -61,6 +61,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
+            android:id="@+id/add_to_cart"
             android:layout_width="43dp"
             android:layout_height="43dp"
             android:layout_gravity="top|end"

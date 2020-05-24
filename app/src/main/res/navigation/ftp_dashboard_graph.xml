@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/dashboardFragment"
         android:name="com.ftp.ui.dashboard.DashboardFragment"
-        android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" >
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_dashboard">
         <action
             android:id="@+id/action_dashboardFragment_to_groceryFragment"
             app:destination="@id/groceryFragment"
@@ -21,7 +21,20 @@
     <fragment
         android:id="@+id/groceryFragment"
         android:name="com.ftp.ui.grocery.GroceryFragment"
-        android:label="fragment_grocery"
-        tools:layout="@layout/fragment_grocery" />
+        android:label=" "
+        tools:layout="@layout/fragment_grocery">
+        <action
+            android:id="@+id/action_groceryFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.ftp.DetailsFragment"
+        android:label=" "
+        tools:layout="@layout/fragment_details">
+        <argument
+            android:name="product"
+            app:argType="com.ftp.ui.grocery.models.Product" />
+    </fragment>
 
 </navigation>
