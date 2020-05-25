@@ -21,7 +21,7 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         login.setOnClickListener { v ->
-            Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_dashboard_graph)
+            Navigation.findNavController(v).navigateUp()
         }
 
         register.setOnClickListener(
