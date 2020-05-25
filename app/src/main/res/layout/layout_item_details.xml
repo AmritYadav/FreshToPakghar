@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:cardCornerRadius="18dp">
+    android:layout_height="0dp"
+    android:background="@drawable/bg_product_content"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/guideline">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/white"
         android:padding="16dp">
 
         <TextView
@@ -120,30 +122,30 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
 
+            android:layout_marginBottom="24dp"
             android:background="@drawable/bg_hollow_border"
             android:padding="12dp"
             android:src="@drawable/ic_favorite_border"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginBottom="24dp"
             app:layout_constraintTop_toBottomOf="@id/tv_delivery_status" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:backgroundTint="@color/light_green_a700"
-            android:text="Bag It"
+            android:layout_marginStart="20dp"
             android:background="@drawable/bg_filled"
+            android:backgroundTint="@color/light_green_a700"
+            android:gravity="center"
+            android:text="Bag It"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/iv_fav"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/iv_fav"
-            app:layout_constraintTop_toTopOf="@id/iv_fav"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:layout_marginStart="20dp"
-            android:textColor="@android:color/white"
-            app:layout_constraintBottom_toBottomOf="@id/iv_fav"/>
+            app:layout_constraintTop_toTopOf="@id/iv_fav" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</com.google.android.material.card.MaterialCardView>
+</FrameLayout>
 
