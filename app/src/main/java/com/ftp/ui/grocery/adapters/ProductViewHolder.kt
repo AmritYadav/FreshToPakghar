@@ -12,9 +12,10 @@ import com.ftp.utils.loadImage
 class ProductViewHolder(private val binding: ItemProductBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(product: Product) {
+    fun bind(product: Product, callback: (product: Product) -> Unit) {
         binding.product = product
-        binding.productImage.loadImage(product.imgUrl, itemView as CardView)
+        binding.productImage.loadImage(product.imgUrl, itemView as CardView) {}
+        binding.addToCart.setOnClickListener { callback.invoke(product) }
     }
 
     companion object {

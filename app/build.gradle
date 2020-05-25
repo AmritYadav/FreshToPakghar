@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
     compileSdkVersion versions.compileSdk
@@ -13,6 +14,8 @@ android {
         targetSdkVersion versions.targetSdk
         versionCode 1
         versionName "1.0"
+
+        buildConfigField("String", "FTP_BASE_URL", "\"http://ftpecom.bitpix.in/api\"")
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

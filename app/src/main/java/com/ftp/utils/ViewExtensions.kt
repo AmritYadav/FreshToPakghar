@@ -49,7 +49,7 @@ fun ImageView.loadDrawableImage(imgUrl: Int) {
         .into(this)
 }
 
-fun ImageView.loadImage(imgUrl: Int, view: CardView) {
+fun ImageView.loadImage(imgUrl: Int, view: View, callback: (colorInt: Int) -> Unit) {
     val defaultColor = ContextCompat.getColor(this.context, R.color.blue_grey_900)
     GlideApp.with(this.context)
         .asBitmap()
@@ -63,6 +63,7 @@ fun ImageView.loadImage(imgUrl: Int, view: CardView) {
                 target: com.bumptech.glide.request.target.Target<Bitmap>?,
                 isFirstResource: Boolean
             ): Boolean {
+                callback.invoke(ColorUtils.setAlphaComponent(defaultColor, 100))
                 return false
             }
 
@@ -73,8 +74,11 @@ fun ImageView.loadImage(imgUrl: Int, view: CardView) {
             ): Boolean {
                 if (resource != null) {
                     val palette = Palette.from(resource).generate()
-                    val color =  palette.getDarkVibrantColor(defaultColor)
-                    view.setCardBackgroundColor(ColorUtils.setAlphaComponent(color, 100))
+                    val color =
+                        ColorUtils.setAlphaComponent(palette.getDarkVibrantColor(defaultColor), 100)
+                    callback.invoke(color)
+                    if (view is CardView) view.setCardBackgroundColor(color)
+                    else view.setBackgroundColor(color)
                 }
                 return false
             }

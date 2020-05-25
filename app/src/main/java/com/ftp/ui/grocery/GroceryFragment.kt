@@ -1,13 +1,17 @@
 package com.ftp.ui.grocery
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.ftp.R
+import com.ftp.ui.MainActivity
 import com.ftp.ui.grocery.adapters.ProductAdapter
 import com.ftp.ui.grocery.models.Product
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_grocery.*
 
 class GroceryFragment : Fragment() {
@@ -20,8 +24,13 @@ class GroceryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as MainActivity).window?.statusBarColor = Color.WHITE
+        (activity as MainActivity).toolbar?.setBackgroundColor(Color.WHITE)
         rv_grocery.apply {
-            adapter = ProductAdapter(PRODUCTS)
+            adapter = ProductAdapter(PRODUCTS) {
+                val action = GroceryFragmentDirections.actionGroceryFragmentToDetailsFragment(it)
+                view.findNavController().navigate(action)
+            }
         }
     }
 }
