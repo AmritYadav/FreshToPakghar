@@ -2,6 +2,9 @@ package com.ftp.di
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.chuckerteam.chucker.api.ChuckerCollector
+import com.chuckerteam.chucker.api.ChuckerInterceptor
+import com.chuckerteam.chucker.api.RetentionManager
 import com.ftp.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -14,7 +17,8 @@ import java.util.concurrent.TimeUnit
 val networkModule = module {
     single { provideSharedPreference(androidApplication()) }
     factory { provideLoggingInterceptor() }
-    factory { provideOkHttpClient(logging = get()) }
+    factory { provideChuckerInterceptor(androidApplication()) }
+    factory { provideOkHttpClient(logging = get(), chucker = get()) }
     single { provideRetrofit(okHttpClient = get()) }
 }
 
@@ -33,11 +37,30 @@ private fun provideLoggingInterceptor(): HttpLoggingInterceptor {
     return logging
 }
 
+private fun provideChuckerInterceptor(context: Context): ChuckerInterceptor {
+
+    val chuckerCollector = ChuckerCollector(
+        context = context,
+        // Toggles visibility of the push notification
+        showNotification = true,
+        // Allows to customize the retention period of collected data
+        retentionPeriod = RetentionManager.Period.ONE_HOUR
+    )
+
+    return ChuckerInterceptor(
+        context,
+        chuckerCollector,
+        maxContentLength = 250000L
+    )
+}
+
 private fun provideOkHttpClient(
-    logging: HttpLoggingInterceptor
+    logging: HttpLoggingInterceptor,
+    chucker: ChuckerInterceptor
 ): OkHttpClient {
     return OkHttpClient.Builder()
         .addInterceptor(logging)
+        .addInterceptor(chucker)
 //        .addInterceptor(clientAuthInterceptor) //Todo: class that will have token
         .connectTimeout(60, TimeUnit.SECONDS)
         .build()
