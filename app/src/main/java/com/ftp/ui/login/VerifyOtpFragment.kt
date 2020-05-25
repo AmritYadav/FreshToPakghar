@@ -20,8 +20,6 @@ class VerifyOtpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         verifyOtp.setOnClickListener { v ->
-            Navigation.findNavController(v)
-                .navigate(R.id.action_verifyOtpFragment_to_dashboard_graph)
         }
     }
 }

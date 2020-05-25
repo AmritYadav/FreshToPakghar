@@ -3,10 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/dashboard_graph"
-    app:startDestination="@id/dashboardFragment">
+    app:startDestination="@id/nav_home">
 
     <fragment
-        android:id="@+id/dashboardFragment"
+        android:id="@+id/nav_login"
+        android:name="com.ftp.ui.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/createAccountFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/createAccountFragment"
+        android:name="com.ftp.ui.login.SignUpFragment"
+        android:label="Create Account"
+        tools:layout="@layout/fragment_create_account">
+        <action
+            android:id="@+id/action_createAccountFragment_to_verifyOtpFragment"
+            app:destination="@id/verifyOtpFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/verifyOtpFragment"
+        android:name="com.ftp.ui.login.VerifyOtpFragment"
+        android:label="OTP Verification"
+        tools:layout="@layout/fragment_verify_otp" />
+    <fragment
+        android:id="@+id/nav_home"
         android:name="com.ftp.ui.dashboard.DashboardFragment"
         android:label="Dashboard"
         tools:layout="@layout/fragment_dashboard">
@@ -29,12 +60,20 @@
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.ftp.DetailsFragment"
+        android:name="com.ftp.ui.grocery.DetailsFragment"
         android:label=" "
         tools:layout="@layout/fragment_details">
         <argument
             android:name="product"
             app:argType="com.ftp.ui.grocery.models.Product" />
+        <action
+            android:id="@+id/action_detailsFragment_to_ftp_checkout_graph"
+            app:destination="@id/ftp_checkout_graph"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
+    <include app:graph="@navigation/ftp_checkout_graph" />
 
 </navigation>

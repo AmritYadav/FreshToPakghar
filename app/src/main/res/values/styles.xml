@@ -2,13 +2,15 @@
 
     <style name="FtpTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@android:color/white</item>
+        <item name="colorPrimaryDark">@android:color/transparent</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="editTextStyle">@style/FtpTheme.EditText</item>
         <item name="colorControlNormal">@color/blue_grey_900</item>
         <item name="colorControlActivated">@color/blue_grey_900</item>
         <item name="colorControlHighlight">@color/blue_grey_900</item>
         <item name="textInputStyle">@style/FtpTheme.FilledBox</item>
+        <item name="navigationViewStyle">@style/AppTheme.NavStyle</item>
+        <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowStyle</item>
     </style>
 
     <style name="FtpTheme.EditText" parent="@android:style/Widget.EditText">
@@ -22,6 +24,18 @@
         <item name="boxBackgroundColor">@android:color/white</item>
         <item name="hintTextColor">@color/blue_grey_900</item>
         <item name="android:textColor">@color/blue_grey_900</item>
+    </style>
+
+    <!--NavigationView Style-->
+    <style name="AppTheme.NavStyle" parent="Widget.Design.NavigationView">
+        <item name="elevation">0dp</item>
+        <item name="android:backgroundTint">@android:color/white</item>
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
+
+    <!--DrawerArrowStyle-->
+    <style name="AppTheme.DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@color/colorPrimary</item>
     </style>
 
 </resources>

@@ -12,6 +12,7 @@ import com.ftp.ui.MainActivity
 import com.ftp.ui.grocery.adapters.ProductAdapter
 import com.ftp.ui.grocery.models.Product
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.fragment_grocery.*
 
 class GroceryFragment : Fragment() {
