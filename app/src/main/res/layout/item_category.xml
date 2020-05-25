@@ -32,6 +32,7 @@
                 android:layout_height="90dp"
                 android:scaleType="centerCrop"
                 app:src="@{category.imageUrl}"
+                tools:src="@tools:sample/backgrounds/scenic"
                 tools:ignore="ContentDescription" />
 
             <TextView
