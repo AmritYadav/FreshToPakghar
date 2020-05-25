@@ -1,14 +1,14 @@
 package com.ftp.data.dashboard.repository
 
+import com.ftp.data.common.BaseRemoteDataSource
 import com.ftp.data.common.Result
 import com.ftp.data.dashboard.api.CategoryApi
 import com.ftp.data.dashboard.models.CategoryApiResponse
-import com.ftp.utils.safeApiCall
 import java.io.IOException
 
-class CategoryRemoteDataSource(private val categoryApi: CategoryApi) {
+class CategoryRemoteDataSource(private val categoryApi: CategoryApi): BaseRemoteDataSource() {
 
-    suspend fun categories(): Result<List<CategoryApiResponse>> = safeApiCall(
+    suspend fun getCategory(): Result<List<CategoryApiResponse>> = safeApiCall(
         call = { requestCategories() },
         errorMessage = "Error loading categories"
     )

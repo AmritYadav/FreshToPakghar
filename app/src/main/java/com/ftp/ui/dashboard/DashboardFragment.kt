@@ -62,7 +62,7 @@ class DashboardFragment : Fragment() {
     }
 
     private fun setupRecycler() {
-        categoryAdapter = CategoryAdapter(mutableListOf()) {
+        categoryAdapter = CategoryAdapter() {
             view?.let { findNavController().navigate(R.id.action_dashboardFragment_to_groceryFragment) }
         }
         rv_category.apply {
