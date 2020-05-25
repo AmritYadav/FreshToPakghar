@@ -10,7 +10,7 @@ import androidx.navigation.fragment.navArgs
 import com.ftp.R
 import com.ftp.ui.MainActivity
 import com.ftp.utils.loadImage
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.fragment_details.*
 
 class DetailsFragment : Fragment() {
