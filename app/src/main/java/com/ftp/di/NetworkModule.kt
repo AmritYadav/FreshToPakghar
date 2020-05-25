@@ -44,7 +44,7 @@ private fun provideChuckerInterceptor(context: Context): ChuckerInterceptor {
         // Toggles visibility of the push notification
         showNotification = true,
         // Allows to customize the retention period of collected data
-        retentionPeriod = RetentionManager.Period.ONE_HOUR
+        retentionPeriod = RetentionManager.Period.ONE_WEEK
     )
 
     return ChuckerInterceptor(
