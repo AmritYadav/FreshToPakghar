@@ -11,7 +11,6 @@ import com.ftp.R
 import com.ftp.data.common.NetworkState
 import com.ftp.ui.dashboard.adapter.CategoryAdapter
 import com.ftp.ui.dashboard.adapter.OffersPagerAdapter
-import com.ftp.ui.dashboard.models.Category
 import com.ftp.ui.dashboard.models.OfferModel
 import com.ftp.utils.gone
 import com.ftp.utils.showToast
@@ -62,7 +61,7 @@ class DashboardFragment : Fragment() {
     }
 
     private fun setupRecycler() {
-        categoryAdapter = CategoryAdapter(mutableListOf()) {
+        categoryAdapter = CategoryAdapter() {
             view?.let { findNavController().navigate(R.id.action_dashboardFragment_to_groceryFragment) }
         }
         rv_category.apply {
@@ -81,7 +80,7 @@ val OFFERS = listOf(
     OfferModel(4, R.drawable.slider_img_4)
 )
 
-val CATEGORIES = listOf(
-    Category(1, R.drawable.ic_grocery, "Grocery"),
-    Category(2, R.drawable.ic_poultry, "Poultry")
-)
+//val CATEGORIES = listOf(
+//    Category(1, R.drawable.ic_grocery, "Grocery"),
+//    Category(2, R.drawable.ic_poultry, "Poultry")
+//)

@@ -81,11 +81,16 @@ fun ImageView.loadDrawableImage(imgUrl: Int) {
         .into(this)
 }
 
-fun ImageView.loadImage(imgUrl: Int, view: View, callback: (colorInt: Int) -> Unit) {
+fun String.getFullUrl() =
+    if (this.contains("http://ftpecom.bitpix.in/"))
+        this
+    else "http://ftpecom.bitpix.in/$this"
+
+fun ImageView.loadImage(imgUrl: String, view: View, callback: (colorInt: Int) -> Unit) {
     val defaultColor = ContextCompat.getColor(this.context, R.color.blue_grey_900)
     GlideApp.with(this.context)
         .asBitmap()
-        .load(imgUrl)
+        .load(imgUrl.getFullUrl())
         .diskCacheStrategy(DiskCacheStrategy.NONE)
         .placeholder(R.mipmap.ic_launcher)
         .listener(object : RequestListener<Bitmap> {

@@ -74,6 +74,10 @@ dependencies {
     // OkHttp Logging Interceptor
     implementation "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}"
 
+    //Chucker: An HTTP inspector
+    debugImplementation "com.github.chuckerteam.chucker:library:${versions.chucker}"
+    releaseImplementation "com.github.chuckerteam.chucker:library-no-op:${versions.chucker}"
+
     // Glide
     implementation "com.github.bumptech.glide:glide:${versions.glide}"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
