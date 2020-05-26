@@ -8,8 +8,10 @@ data class Category(
     val id: Int,
 
     @SerializedName("thumb")
-    @DrawableRes
-    val imageUrl: Int,
+    val imageUrl: String,
+
+    @SerializedName("parent_id")
+    val parentId: Int,
 
     @SerializedName("name")
     val name: String,
