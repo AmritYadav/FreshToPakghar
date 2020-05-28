@@ -1,9 +1,7 @@
 package com.ftp.utils
 
 import android.graphics.Bitmap
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ImageView
 import androidx.annotation.LayoutRes
 import androidx.cardview.widget.CardView
@@ -20,9 +18,43 @@ import com.bumptech.glide.request.RequestListener
 import com.ftp.GlideApp
 import com.ftp.R
 
+/**
+ * To be used with ProgressBar
+ *
+ * sets visibility state of the view to View.VISIBLE and
+ * also disables user interaction while loading data
+ */
+fun View.visible(window: Window?) {
+    this.visibility = View.VISIBLE
+    window.disableViewInteraction()
+}
+
+/**
+ * To be used with ProgressBar
+ *
+ * sets visibility state of the view to View.GONE and
+ * also enables user interaction when data loading is complete
+ */
+fun View.gone(window: Window?) {
+    this.visibility = View.GONE
+    window.enableViewInteraction()
+}
 
 fun View.visibleGone(visible: Boolean) {
     visibility = if (visible) View.VISIBLE else View.GONE
+}
+
+fun Window?.disableViewInteraction() {
+    this?.let {
+        setFlags(
+            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+        )
+    }
+}
+
+fun Window?.enableViewInteraction() {
+    this?.let { clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE) }
 }
 
 /**
@@ -49,11 +81,16 @@ fun ImageView.loadDrawableImage(imgUrl: Int) {
         .into(this)
 }
 
-fun ImageView.loadImage(imgUrl: Int, view: View, callback: (colorInt: Int) -> Unit) {
+fun String.getFullUrl() =
+    if (this.contains("http://ftpecom.bitpix.in/"))
+        this
+    else "http://ftpecom.bitpix.in/$this"
+
+fun ImageView.loadImage(imgUrl: String, view: View, callback: (colorInt: Int) -> Unit) {
     val defaultColor = ContextCompat.getColor(this.context, R.color.blue_grey_900)
     GlideApp.with(this.context)
         .asBitmap()
-        .load(imgUrl)
+        .load(imgUrl.getFullUrl())
         .diskCacheStrategy(DiskCacheStrategy.NONE)
         .placeholder(R.mipmap.ic_launcher)
         .listener(object : RequestListener<Bitmap> {

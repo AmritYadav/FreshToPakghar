@@ -15,7 +15,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        buildConfigField("String", "FTP_BASE_URL", "\"http://ftpecom.bitpix.in/api\"")
+        buildConfigField("String", "FTP_BASE_URL", "\"http://ftpecom.bitpix.in\"")
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -73,6 +73,10 @@ dependencies {
 
     // OkHttp Logging Interceptor
     implementation "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}"
+
+    //Chucker: An HTTP inspector
+    debugImplementation "com.github.chuckerteam.chucker:library:${versions.chucker}"
+    releaseImplementation "com.github.chuckerteam.chucker:library-no-op:${versions.chucker}"
 
     // Glide
     implementation "com.github.bumptech.glide:glide:${versions.glide}"
